@@ -34,6 +34,8 @@
   
 
   
+    <link  rel="stylesheet" href="/css/gitalk.css" />
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -258,6 +260,38 @@
               
             </div>
 
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    function loadGitalk() {
+      addScript('https://cdn.staticfile.org/blueimp-md5/2.13.0/js/md5.min.js');
+      addScript('https://cdn.staticfile.org/gitalk/1.6.2/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: '0b71953c84b12da68f68',
+          clientSecret: '8100a7a9fbe09b01205696ed5b22e746555c82bf',
+          repo: 'sta-2020.github.io',
+          owner: 'hwchu',
+          admin: ["name"],
+          id: md5(location.pathname),
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    }
+    waitElementVisible('gitalk-container', loadGitalk);
+  </script>
+
+
+              </article>
             
           </article>
         </div>
